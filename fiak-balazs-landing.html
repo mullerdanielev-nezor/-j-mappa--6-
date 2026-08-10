@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiák Balázs E.v. — Veszélyes fakivágás Berhidán és környékén</title>
+<meta name="description" content="Veszélyes és lakossági fakivágás, bozótirtás, fűnyírás Berhidán és 30 km körzetében. Díjmentes felmérés.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF7F1;--bg-alt:#F1EADD;--card:#FFFFFF;
+    --ink:#26301F;--ink-dim:#6B7263;
+    --green:#3F6B44;--green-deep:#28422C;--green-pale:#E7EEE4;
+    --brown:#F5C518;--brown-deep:#D9A70A;
+    --line:rgba(38,48,31,.13);
+    --r-lg:28px;--r-md:18px;--r-sm:12px;--r-pill:999px;
+    --maxw:1120px;
+    --shadow:0 10px 30px -14px rgba(38,48,31,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"PT Sans",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:0}
+  h1,h2,h3{font-family:"Anton","PT Sans",sans-serif;line-height:1.06;font-weight:400;letter-spacing:.01em;text-transform:uppercase}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .eyebrow{font-family:"PT Sans",sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brown-deep)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:16px;padding:16px 28px;border-radius:var(--r-pill);border:2px solid transparent;transition:transform .15s ease,background .15s ease,box-shadow .15s ease;cursor:pointer;min-height:52px}
+  .btn:focus-visible{outline:3px solid var(--brown);outline-offset:3px}
+  .btn-primary{background:var(--brown);color:#171A0A;box-shadow:var(--shadow)}
+  .btn-primary:hover{background:var(--brown-deep);transform:translateY(-2px)}
+  .btn-ghost{background:var(--card);color:var(--green-deep);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--green);color:var(--green)}
+  .btn-block{width:100%}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(250,247,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{font-family:"Anton",sans-serif;font-weight:400;font-size:20px;letter-spacing:.02em;text-transform:uppercase}
+  .brand span{color:var(--green)}
+  .nav-cta{font-family:"PT Sans",sans-serif;font-weight:600;font-size:14.5px;border:2px solid var(--green);padding:9px 18px;border-radius:var(--r-pill);color:var(--green-deep)}
+  .nav-cta:hover{background:var(--green);color:#fff}
+
+  /* HERO */
+  .hero{position:relative;padding:56px 0 60px;overflow:hidden}
+  .blob{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(100px);opacity:.16;background:var(--green);top:-200px;right:-160px;pointer-events:none}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+  .hero h1{font-size:clamp(32px,5.4vw,58px);margin:20px 0 22px}
+  .hero h1 em{font-style:normal;color:var(--brown)}
+  .hero p.lead{font-size:clamp(16.5px,2vw,19px);color:var(--ink-dim);max-width:52ch;margin-bottom:32px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px}
+  .lbl-short{display:none}
+  .trust-note{margin-top:0;display:flex;flex-wrap:wrap;gap:16px 24px}
+  .trust-note span{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--green-deep);white-space:nowrap}
+  .trust-note span::before{content:"✓";display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;background:var(--green-pale);color:var(--green);font-size:11px;font-weight:700}
+
+  .media-slot{border-radius:var(--r-lg);border:2px dashed rgba(63,107,68,.35);background:linear-gradient(160deg,var(--green-pale),var(--bg-alt));aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;overflow:hidden}
+  .media-slot .in{color:var(--green-deep);font-size:13.5px;font-weight:600;line-height:1.5}
+  .media-slot .in b{display:block;font-size:26px;margin-bottom:8px}
+  .media-slot.wide{aspect-ratio:16/10}
+  .media-slot.has-img{border:none;padding:0;box-shadow:var(--shadow);background:#111}
+  .media-slot.has-img img{width:100%;height:100%;object-fit:contain;border-radius:calc(var(--r-lg) - 2px)}
+
+  /* FIGYELMEZTETŐ SÁV */
+  .alert-banner{margin:8px 0 0}
+  .alert{display:flex;align-items:center;gap:16px;background:var(--green-deep);color:#fff;border-radius:var(--r-lg);padding:22px 28px}
+  .alert .ico{flex:none;width:44px;height:44px;border-radius:50%;background:var(--brown);display:flex;align-items:center;justify-content:center;font-size:20px}
+  .alert p{font-size:clamp(15.5px,2vw,19px);font-weight:600;line-height:1.45}
+  .alert p b{color:#F4C98A}
+
+  section.blk{padding:64px 0}
+  .sec-alt{background:var(--bg-alt)}
+  .sec-head{margin-bottom:32px;max-width:640px}
+  .sec-head h2{font-size:clamp(25px,3.6vw,38px);margin-top:10px}
+
+  /* SZOLGÁLTATÁSOK */
+  .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:26px;transition:box-shadow .2s,transform .2s}
+  .card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+  .card.primary{border-color:rgba(156,107,62,.4);background:linear-gradient(180deg,#FBF3E8,#FFFFFF)}
+  .card .ico{width:42px;height:42px;border-radius:var(--r-sm);background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+  .card.primary .ico{background:#F3E2C9}
+  .card h3{font-family:"PT Sans",sans-serif;font-size:18.5px;margin-bottom:8px;font-weight:700}
+  .card p{font-size:14.5px;color:var(--ink-dim)}
+  .card .pill{display:inline-block;margin-bottom:12px;font-weight:700;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#171A0A;background:var(--brown);padding:5px 11px;border-radius:var(--r-pill)}
+
+  /* REFERENCIÁK */
+  .refs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .ref{aspect-ratio:4/3;border:2px dashed rgba(63,107,68,.3);border-radius:var(--r-md);background:var(--bg-alt);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;overflow:hidden}
+  .ref.has-img{border-style:solid;border-color:var(--line);padding:0}
+  .ref.has-img img{width:100%;height:100%;object-fit:contain;display:block;background:var(--ink)}
+  .ref span{font-size:13px;color:var(--ink-dim);font-weight:600;line-height:1.5}
+  .refs-note{margin-top:16px;font-size:14px;color:var(--ink-dim)}
+
+  /* BIZALOM */
+  .why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .why div{background:var(--card);padding:24px 22px;border-radius:var(--r-md);border:1px solid var(--line)}
+  .why .ico{width:38px;height:38px;border-radius:50%;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px}
+  .why h3{font-family:"PT Sans",sans-serif;font-size:16.5px;margin-bottom:6px;color:var(--green-deep);font-weight:700}
+  .why p{font-size:14px;color:var(--ink-dim)}
+
+  /* RÓLAM */
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:center}
+  .about-media{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .about-media img{width:100%;display:block}
+  .about h2{margin:12px 0 16px;font-size:clamp(24px,3.4vw,34px)}
+  .about p{color:var(--ink-dim);margin-bottom:14px;max-width:56ch}
+  .about p:last-child{margin-bottom:0}
+
+  /* AJÁNLATKÉRÉS */
+  .contact{background:var(--green-deep)}
+  .contact h2{color:#fff}
+  .contact .lead{color:#D7E0D5}
+  .contact .info-row{border-bottom-color:rgba(255,255,255,.15)}
+  .contact .info-row .v{color:#fff}
+  .contact .info-row a.v:hover{color:var(--brown)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  .contact h2{font-size:clamp(25px,3.6vw,38px);margin:10px 0 14px}
+  .contact .lead{color:var(--ink-dim);margin-bottom:24px;max-width:42ch}
+  .info-row{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .info-row .k{font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--brown-deep);min-width:74px}
+  .info-row .v{font-size:17px}
+  .info-row a.v:hover{color:var(--brown)}
+  form{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;box-shadow:var(--shadow)}
+  form label{display:block;font-weight:600;font-size:13px;color:var(--ink-dim);margin-bottom:8px}
+  form .field{margin-bottom:16px}
+  form input,form textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-sm);color:var(--ink);font-family:"PT Sans";font-size:16px;padding:14px 16px}
+  form input:focus,form textarea:focus{outline:none;border-color:var(--brown)}
+  form textarea{resize:vertical;min-height:88px}
+  form button{margin-top:4px}
+  .form-ok{display:none;text-align:center;padding:18px 0}
+  .form-ok.show{display:block}
+  .form-ok h3{color:var(--green-deep);font-size:22px;margin-bottom:8px}
+  .form-ok p{color:var(--ink-dim)}
+
+  footer.ft{padding:36px 0 96px;text-align:center;color:var(--ink-dim);font-size:13.5px}
+  footer.ft .brand{font-size:15px;display:inline-block;margin-bottom:6px}
+
+  /* MOBIL RAGADÓS CTA SÁV — konverziónövelő */
+  .sticky-cta{display:none}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr}
+    .hero-in{order:-1}
+    .about-grid{grid-template-columns:1fr}
+    .contact-grid{grid-template-columns:1fr}
+    .svc,.refs,.why{grid-template-columns:1fr 1fr}
+    .nav-cta{display:none}
+  }
+  @media (max-width:520px){
+    .svc,.refs,.why{grid-template-columns:1fr}
+    section.blk{padding:48px 0}
+    .alert{flex-direction:column;text-align:center;padding:22px 20px}
+    .cta-row{flex-wrap:nowrap;gap:8px}
+    .cta-row .btn{flex:1;min-width:0;padding:12px 10px;font-size:13px;gap:5px}
+    .lbl-full{display:none}
+    .lbl-short{display:inline}
+    .trust-note{flex-wrap:nowrap;overflow-x:auto;gap:14px;padding-bottom:2px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .trust-note::-webkit-scrollbar{display:none}
+    .trust-note span{font-size:12px}
+    body{padding-bottom:78px}
+    .sticky-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(250,247,241,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s ease}
+    .sticky-cta.show{transform:translateY(0)}
+    .sticky-cta .btn{flex:1;padding:14px 16px;font-size:14.5px;min-height:48px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- META PIXEL helye. Sikeres beküldésnél: fbq('track','Lead'); -->
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <div class="brand">FIÁK BALÁZS <span>E.v.</span></div>
+    <a class="nav-cta" href="tel:+36302867714">+36 30 286 7714</a>
+  </div>
+</header>
+
+<!-- PROBLÉMA -->
+<section class="hero">
+  <div class="blob"></div>
+  <div class="wrap hero-grid">
+    <div class="media-slot has-img">
+      <img src="images/viharkar-statisztika.png" alt="MABISZ statisztika: 2025-ben több mint 101 032 kárbejelentés érkezett a biztosítókhoz a nyári viharkárok miatt Magyarországon" loading="eager">
+    </div>
+    <div class="hero-in">
+      <span class="eyebrow">Berhida · Veszprém megye + 30 km</span>
+      <h1>A háza védelme nem várhat a <em>következő viharig</em>.</h1>
+      <p class="lead">Megdőlt, korhadt vagy épület mellé nőtt fa a telkén? Minél tovább vár, annál nagyobb a kockázat — és annál drágább a kivágás.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="tel:+36302867714">📞 <span class="lbl-full">Hívjon: +36 30 286 7714</span><span class="lbl-short">Hívás</span></a>
+        <a class="btn btn-ghost" href="#ajanlat"><span class="lbl-full">Ingyenes felmérést kérek</span><span class="lbl-short">Felmérést kérek</span></a>
+      </div>
+      <div class="trust-note">
+        <span>Díjmentes felmérés</span>
+        <span>Fix ár</span>
+        <span>Elszállítás a munka után</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap alert-banner">
+  <div class="alert">
+    <span class="ico">⚠️</span>
+    <p>Megdőlt? Repedt? A vezetéket súrolja? <b>Ne várja meg a viharkárt.</b></p>
+  </div>
+</div>
+
+<!-- MEGOLDÁS -->
+<section class="blk sec-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Megoldás</span>
+      <h2>Biztonságosan kivágjuk — bármilyen nehéz az eset</h2>
+    </div>
+    <div class="svc">
+      <div class="card primary">
+        <span class="pill">Fő szakterület</span>
+        <div class="ico">🪓</div>
+        <h3>Veszélyes fakivágás</h3>
+        <p>Kötéltechnikás és gépi kivágás szűk helyen, tető vagy vezeték mellett is — kár nélkül.</p>
+      </div>
+      <div class="card"><div class="ico">🌳</div><h3>Lakossági fakivágás</h3><p>Kertben, telken, út mellett, a tuskó és a hulladék elszállításával.</p></div>
+      <div class="card"><div class="ico">🌿</div><h3>Bozótirtás</h3><p>Elvadult telkek, benőtt kertek, árokpartok teljes megtisztítása.</p></div>
+      <div class="card"><div class="ico">🌱</div><h3>Fűnyírás, gondozás</h3><p>Egyszeri vagy rendszeres fűnyírás és területkarbantartás.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCIÁK -->
+<section class="blk" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Referenciák</span>
+      <h2>Elvégzett munkáink</h2>
+    </div>
+    <div class="refs">
+      <div class="ref has-img"><img src="images/ref-munka-kozben-1.png" alt="Fiák Balázs fenyőfa tetején, kötéltechnikával, munka közben" loading="lazy"></div>
+      <div class="ref has-img"><img src="images/ref-munka-kozben-2.jpeg" alt="Veszélyes fa gallyazása kötéltechnikával, közelről" loading="lazy"></div>
+      <div class="ref has-img"><img src="images/ref-munka-kozben-3.jpeg" alt="Magas fenyőfa szakszerű kivágása lakóház és villanyvezeték közelében" loading="lazy"></div>
+    </div>
+    <p class="refs-note">Saját munkáink fotói — a valós, munka közbeni képek adják a legerősebb bizonyítékot.</p>
+  </div>
+</section>
+
+<!-- BIZALOM -->
+<section class="blk sec-alt" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Miért ránk bízza</span>
+      <h2>Veszélyes munka, nyugodt megrendelő</h2>
+    </div>
+    <div class="why">
+      <div><div class="ico">🛡️</div><h3>Biztonság elsőként</h3><p>Védőfelszerelés és szakszerű technika minden esetben.</p></div>
+      <div><div class="ico">⚙️</div><h3>Gépi háttér</h3><p>A nehéz, körülményes eseteket is megoldjuk.</p></div>
+      <div><div class="ico">🧹</div><h3>Rendet hagyunk</h3><p>A fát és a hulladékot elszállítjuk, tisztán adjuk vissza.</p></div>
+      <div><div class="ico">📍</div><h3>Helyi vállalkozás</h3><p>Berhidáról, gyors kiszállással a környéken.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RÓLAM -->
+<section class="blk about" style="padding-top:0">
+  <div class="wrap about-grid">
+    <div class="about-media">
+      <img src="images/balazs-fan-munka-kozben.png" alt="Fiák Balázs kötéltechnikával, fán dolgozik motoros fűrésszel" loading="lazy">
+    </div>
+    <div>
+      <span class="eyebrow">Rólam</span>
+      <h2>Fiák Balázs vagyok — és tudom, mennyi múlik egy időben meghozott döntésen</h2>
+      <p>Csak 2025 nyarán több mint 101 000 viharkár-bejelentés érkezett a magyar biztosítókhoz — sok esetben egy időben észrevett, veszélyes fa miatt, amit már nem lehetett biztonságosan megelőzni.</p>
+      <p>Évek óta vágok ki veszélyes fákat kötéltechnikával és géppel, szűk helyen, épület és vezeték mellett is. Nem a legolcsóbb megoldást kínálom, hanem a legbiztonságosabbat — magamnak, a családomnak és minden megrendelőmnek is ezt várnám el.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AJÁNLATKÉRÉS -->
+<section class="blk contact" id="ajanlat">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow">Ajánlatkérés</span>
+      <h2>Kérje a díjmentes felmérést</h2>
+      <p class="lead">Hívjon, vagy hagyja meg az adatait — visszahívjuk és időpontot egyeztetünk.</p>
+      <div class="info-row"><span class="k">Telefon</span><a class="v" href="tel:+36302867714">+36 30 286 7714</a></div>
+      <div class="info-row"><span class="k">E-mail</span><a class="v" href="mailto:balazsfiak5@gmail.com">balazsfiak5@gmail.com</a></div>
+      <div class="info-row"><span class="k">Cím</span><span class="v">8181 Berhida, Vasút utca 14.</span></div>
+    </div>
+    <div>
+      <form id="leadForm" novalidate>
+        <div class="field"><label for="nev">Az Ön neve</label><input id="nev" name="nev" type="text" autocomplete="name" placeholder="Pl. Kovács Péter" required></div>
+        <div class="field"><label for="tel">Telefonszám</label><input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="+36 30 000 0000" required></div>
+        <div class="field"><label for="uzenet">Mit kell megoldani?</label><textarea id="uzenet" name="uzenet" placeholder="Pl. megdőlt fa a ház mellett, vezeték közelében."></textarea></div>
+        <button class="btn btn-primary btn-block" type="submit">Felmérést kérek</button>
+      </form>
+      <div class="form-ok" id="formOk"><h3>Köszönjük, megkaptuk!</h3><p>Hamarosan hívjuk. Sürgős esetben: +36 30 286 7714.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="brand">FIÁK BALÁZS <span style="color:var(--green)">E.v.</span></div>
+    <div>Veszélyes és lakossági fakivágás · Bozótirtás · Fűnyírás — Berhida és környéke</div>
+  </div>
+</footer>
+
+<!-- MOBIL RAGADÓS CTA — mindig elérhető hívás/felmérés gomb kis képernyőn -->
+<div class="sticky-cta" id="stickyCta">
+  <a class="btn btn-primary" href="tel:+36302867714">📞 Hívás</a>
+  <a class="btn btn-ghost" href="#ajanlat">Felmérést kérek</a>
+</div>
+
+<script>
+  (function(){
+    // Ragadós mobil CTA-sáv csak akkor jelenjen meg, ha a hero-n túl görget a látogató —
+    // így nem duplikálódik/torlódik a hero saját gombjaival az első képernyőn.
+    var hero=document.querySelector('.hero'),sticky=document.getElementById('stickyCta');
+    if(hero&&sticky){
+      var toggle=function(){
+        var past=hero.getBoundingClientRect().bottom<0;
+        sticky.classList.toggle('show',past);
+      };
+      window.addEventListener('scroll',toggle,{passive:true});
+      toggle();
+    }
+  })();
+  (function(){
+    var f=document.getElementById('leadForm'),ok=document.getElementById('formOk');
+    if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var nev=f.nev.value.trim(),tel=f.tel.value.trim();
+      if(!nev){f.nev.focus();return;}
+      if(!tel){f.tel.focus();return;}
+      // >>> ITT küldd el a leadet (Formspree / saját endpoint / Webnode) <<<
+      // if(window.fbq){ fbq('track','Lead'); }
+      f.style.display='none';ok.classList.add('show');
+    });
+  })();
+</script>
+</body>
+</html>
