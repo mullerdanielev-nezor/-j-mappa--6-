@@ -155,8 +155,7 @@
      A keret a videó saját méretarányához igazodik, nem kényszerít rá fix arányt. */
   .video-frame-wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:18px}
   .video-frame{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:14px;box-shadow:var(--shadow);display:inline-flex;flex-direction:column;align-items:center}
-  .video-frame video{max-width:100%;max-height:480px;width:auto;height:auto;border-radius:var(--r-sm);background:#111;display:block}
-  .video-frame video::-webkit-media-controls-fullscreen-button{display:none}
+  .video-frame video{max-width:100%;max-height:480px;width:auto;height:auto;border-radius:var(--r-sm);background:#111;display:block;pointer-events:none;user-select:none}
 
   /* AJÁNLATKÉRÉS */
   .contact{background:var(--green-deep);padding-bottom:88px}
@@ -443,12 +442,12 @@
 
     <div class="video-frame-wrap">
       <div class="video-frame">
-        <video class="auto-video" controls muted loop playsinline preload="metadata" controlsList="nofullscreen noremoteplayback nodownload" disablePictureInPicture>
+        <video class="auto-video" muted loop playsinline preload="metadata" tabindex="-1" oncontextmenu="return false" disablePictureInPicture>
           <source src="images/video-favagas-1.mp4" type="video/mp4">
         </video>
       </div>
       <div class="video-frame">
-        <video class="auto-video" controls muted loop playsinline preload="metadata" controlsList="nofullscreen noremoteplayback nodownload" disablePictureInPicture>
+        <video class="auto-video" muted loop playsinline preload="metadata" tabindex="-1" oncontextmenu="return false" disablePictureInPicture>
           <source src="images/video-favagas-2.mp4" type="video/mp4">
         </video>
       </div>
