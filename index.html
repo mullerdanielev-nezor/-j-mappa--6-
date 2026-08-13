@@ -200,6 +200,24 @@
   .cookie-actions .btn-ghost{background:transparent;border-color:rgba(255,255,255,.4);color:#fff}
   .cookie-actions .btn-ghost:hover{border-color:#fff}
 
+  @media (min-width:861px){
+    /* GÉPES HEADLINE — a nagy vw-alapú betűméret miatt széles kijelzőn a sárga kiemelés
+       magától újratört; itt szűkebb sávra korlátozzuk a méretet, hogy egy sorban maradjon. */
+    .hero h1{font-size:clamp(42px,4.6vw,58px)}
+
+    /* GÉPES GALÉRIA — a mobilos görgetős sáv helyett nagyobb, középre igazított, keretes elrendezés. */
+    .gallery{overflow-x:visible;flex-wrap:nowrap;justify-content:center;margin:0;padding:20px;gap:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow)}
+    .gallery-item{width:300px}
+    .gallery-item .gi-media{width:300px}
+    .gallery-hint{display:none}
+
+    /* GÉPES VIDEÓK — a széles (fekvő) videó balra 70%, a keskeny (álló, telefonos) videó jobbra 30%. */
+    .video-frame-wrap{flex-wrap:nowrap;align-items:stretch}
+    .video-frame-wrap .video-frame:nth-child(1){flex:0 0 70%}
+    .video-frame-wrap .video-frame:nth-child(2){flex:0 0 30%}
+    .video-frame-wrap .video-frame video{width:100%;max-width:100%;height:auto;max-height:none}
+  }
+
   @media (max-width:860px){
     .hero-grid{grid-template-columns:minmax(0,1fr)}
     .hero-in{order:-1}
