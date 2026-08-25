@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         'Accept': 'application/json',
       },
       body: JSON.stringify({
-        sender: { name: 'Weboldal ajánlatkérés', email: 'noreply@fiakbalazs.hu' },
+        sender: { name: 'Weboldal ajánlatkérés', email: 'noreply@faveszely.hu' },
         to: [
           // TESZT: balazsfiak5@gmail.com ideiglenesen kikapcsolva, vissza kell tenni éles előtt
           { email: 'miklosjelencsity@gmail.com' },
