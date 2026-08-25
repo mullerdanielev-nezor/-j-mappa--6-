@@ -508,6 +508,7 @@
   <div class="wrap">
     <div class="brand">FIÁK BALÁZS <span style="color:var(--green)">E.v.</span></div>
     <div>Veszélyes és lakossági fakivágás · Bozótirtás · Fűnyírás · Berhida és környéke</div>
+    <div style="margin-top:10px"><a href="privacy.html" style="color:inherit;text-decoration:underline">Adatkezelési tájékoztató</a></div>
   </div>
 </footer>
 
@@ -542,7 +543,7 @@
   })();
   (function(){
     // Mindkét ajánlatkérő form (fent és lent) ugyanazzal a logikával validál és
-    // vált köszönő állapotra — valódi beküldés helyén (Formspree / saját endpoint) kössük be.
+    // küldi el a leadet a /api/send-lead endpointnak (Brevo email értesítés).
     function wire(formId, okId){
       var f=document.getElementById(formId), ok=document.getElementById(okId);
       if(!f) return;
@@ -552,10 +553,26 @@
         for (var i=0;i<required.length;i++){
           if(!required[i].value.trim()){ required[i].focus(); return; }
         }
-        // >>> ITT küldd el a leadet (Formspree / saját endpoint / Webnode) <<<
-        // if(window.fbq){ fbq('track','Lead'); }
-        f.style.display='none';
-        ok.classList.add('show');
+        var btn = f.querySelector('button[type="submit"]');
+        if(btn){ btn.disabled = true; }
+        var data = {
+          nev: f.querySelector('[name="nev"]').value.trim(),
+          tel: f.querySelector('[name="tel"]').value.trim(),
+          hol: f.querySelector('[name="hol"]').value.trim()
+        };
+        fetch('/api/send-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function(r){
+          if(!r.ok) throw new Error('send failed');
+          // if(window.fbq){ fbq('track','Lead'); }
+          f.style.display='none';
+          ok.classList.add('show');
+        }).catch(function(){
+          if(btn){ btn.disabled = false; }
+          alert('Hiba történt a küldés során. Kérjük, hívjon minket telefonon.');
+        });
       });
     }
     wire('heroForm','heroFormOk');
