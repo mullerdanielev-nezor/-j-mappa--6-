@@ -20,7 +20,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         'api-key': apiKey,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json; charset=utf-8',
         'Accept': 'application/json',
       },
       body: JSON.stringify({
