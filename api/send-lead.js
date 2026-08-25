@@ -31,7 +31,10 @@ export default async function handler(req, res) {
           { email: 'mullerdanielev@gmail.com' },
         ],
         subject: `Új ajánlatkérés – ${nev} (${hol})`,
-        htmlContent: `
+        htmlContent: `<!DOCTYPE html>
+        <html lang="hu">
+        <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+        <body>
         <div style="background:#faf7f1;padding:32px 16px;font-family:Segoe UI,Roboto,Arial,sans-serif;color:#171a0a">
           <table role="presentation" width="100%" style="max-width:520px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e4ddc9">
             <tr>
@@ -66,6 +69,8 @@ export default async function handler(req, res) {
             </tr>
           </table>
         </div>
+        </body>
+        </html>
         `,
       }),
     });
