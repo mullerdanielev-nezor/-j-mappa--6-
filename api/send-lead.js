@@ -24,19 +24,48 @@ export default async function handler(req, res) {
         'Accept': 'application/json',
       },
       body: JSON.stringify({
-        sender: { name: 'Weboldal ajánlatkérés', email: 'miklosjelencsity@gmail.com' },
+        sender: { name: 'Fiák Balázs E.v. – Weboldal', email: 'miklosjelencsity@gmail.com' },
         to: [
-          // TESZT: balazsfiak5@gmail.com ideiglenesen kikapcsolva, vissza kell tenni éles előtt
+          { email: 'fiakbalazs455@gmail.com' },
           { email: 'miklosjelencsity@gmail.com' },
+          { email: 'mullerdanielev@gmail.com' },
         ],
         subject: `Új ajánlatkérés – ${nev} (${hol})`,
         htmlContent: `
-          <p><strong>Új ajánlatkérés érkezett a weboldalról:</strong></p>
-          <ul>
-            <li><strong>Név:</strong> ${nev}</li>
-            <li><strong>Telefonszám:</strong> ${tel}</li>
-            <li><strong>Hol:</strong> ${hol}</li>
-          </ul>
+        <div style="background:#faf7f1;padding:32px 16px;font-family:Segoe UI,Roboto,Arial,sans-serif;color:#171a0a">
+          <table role="presentation" width="100%" style="max-width:520px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e4ddc9">
+            <tr>
+              <td style="background:#1f2a12;padding:22px 28px">
+                <span style="color:#f2c94c;font-size:12px;letter-spacing:.12em;font-weight:700;text-transform:uppercase">Fiák Balázs E.v.</span>
+                <h1 style="color:#ffffff;font-size:20px;margin:6px 0 0;font-weight:600">Új ajánlatkérés érkezett</h1>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:28px">
+                <table role="presentation" width="100%" style="border-collapse:collapse">
+                  <tr>
+                    <td style="padding:10px 0;border-bottom:1px solid #e4ddc9;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8a6a1f;font-weight:700;width:110px">Név</td>
+                    <td style="padding:10px 0;border-bottom:1px solid #e4ddc9;font-size:15px">${nev}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:10px 0;border-bottom:1px solid #e4ddc9;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8a6a1f;font-weight:700">Telefon</td>
+                    <td style="padding:10px 0;border-bottom:1px solid #e4ddc9;font-size:15px"><a href="tel:${tel}" style="color:#171a0a;text-decoration:none">${tel}</a></td>
+                  </tr>
+                  <tr>
+                    <td style="padding:10px 0;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8a6a1f;font-weight:700">Helyszín</td>
+                    <td style="padding:10px 0;font-size:15px">${hol}</td>
+                  </tr>
+                </table>
+                <a href="tel:${tel}" style="display:inline-block;margin-top:24px;background:#c9a24b;color:#171a0a;font-weight:700;font-size:14px;text-decoration:none;padding:12px 22px;border-radius:999px">Visszahívom most</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:16px 28px;background:#f1ead9;font-size:12px;color:#5a5f4a;text-align:center">
+                Ez az üzenet automatikusan érkezett a fiakbalazs weboldal ajánlatkérő űrlapjáról.
+              </td>
+            </tr>
+          </table>
+        </div>
         `,
       }),
     });
