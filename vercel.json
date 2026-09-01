@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/privacy.html", "destination": "/", "permanent": false },
+    { "source": "/font-picker.html", "destination": "/", "permanent": false },
+    { "source": "/headline-picker.html", "destination": "/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
